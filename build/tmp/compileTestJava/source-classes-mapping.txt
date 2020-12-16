@@ -1,2 +1,16 @@
+br/com/desafio_java/controller/AcompanhamentoControllerTest.java
+ br.com.desafio_java.controller.AcompanhamentoControllerTest
 br/com/desafio_java/DesafioJavaApplicationTests.java
  br.com.desafio_java.DesafioJavaApplicationTests
+br/com/desafio_java/controller/OrdemServicoControllerTest.java
+ br.com.desafio_java.controller.OrdemServicoControllerTest
+br/com/desafio_java/controller/ColaboradorControllerTest.java
+ br.com.desafio_java.controller.ColaboradorControllerTest
+br/com/desafio_java/controller/EquipamentoControllerTest.java
+ br.com.desafio_java.controller.EquipamentoControllerTest
+br/com/desafio_java/controller/ClienteControllerTest.java
+ br.com.desafio_java.controller.ClienteControllerTest
+br/com/desafio_java/controller/AbstractControllerTest.java
+ br.com.desafio_java.controller.AbstractControllerTest
+br/com/desafio_java/service/OrdemServicoTest.java
+ br.com.desafio_java.service.OrdemServicoTest

@@ -15,15 +15,15 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/Equipamento")
+@RequestMapping("/equipamento")
 @Api("Equipamentos")
 public class EquipamentoController {
 
     @Autowired
-    private EquipamentoService equipamentoService;
+    private EquipamentoService _equipamentoService;
 
     @Autowired
-    private EquipamentoMapper equipamentoMapper;
+    private EquipamentoMapper _equipamentoMapper;
 
     @ApiOperation(value = "Buscar todos os equipamentos")
     @ApiResponses(value = {
@@ -32,7 +32,7 @@ public class EquipamentoController {
     @GetMapping("/equipamentos")
     public List<Equipamento> BuscarTodos() {
         try {
-            List<Equipamento> listaEquipamentos = equipamentoService.findAll();
+            List<Equipamento> listaEquipamentos = _equipamentoService.findAll();
             return listaEquipamentos;
         } catch (Exception ex) {
             throw ex;
@@ -43,11 +43,11 @@ public class EquipamentoController {
     @ApiResponses(value = {
             @ApiResponse(code = 201, message = "Equipamento criado com sucesso")
     })
-    @PostMapping("/equipamento")
+    @PostMapping()
     public Equipamento IncluirEquipamento(@RequestBody EquipamentoPostDto equipamentoPostDto) {
         try {
-            Equipamento equipamento = equipamentoMapper.toEntity(equipamentoPostDto);
-            equipamentoService.save(equipamento);
+            Equipamento equipamento = _equipamentoMapper.toEntity(equipamentoPostDto);
+            _equipamentoService.save(equipamento);
             return equipamento;
         } catch (Exception ex) {
             throw ex;
@@ -61,8 +61,8 @@ public class EquipamentoController {
     })
     @DeleteMapping("/{id}")
     public void Deletar(@PathVariable Long id) {
-        equipamentoService.findById(id).orElseThrow(() -> new RegistroNaoEncontradoException("Equipamento não encontrado"));
-        equipamentoService.deleteById(id);
+        _equipamentoService.findById(id).orElseThrow(() -> new RegistroNaoEncontradoException("Equipamento não encontrado"));
+        _equipamentoService.deleteById(id);
     }
 
     @ApiOperation(value = "Atualiza um equipamento")
@@ -70,9 +70,9 @@ public class EquipamentoController {
             @ApiResponse(code = 201, message = "Equipamento atualizado com sucesso")
     })
     @PostMapping("/atualizar/{id}")
-    public Equipamento UpdateEquipamento(@RequestBody Equipamento equipamento) throws RegistroNaoEncontradoException {
-        equipamentoService.findById(equipamento.id).orElseThrow(() -> new RegistroNaoEncontradoException("Equipamento não encontrado"));
-        Equipamento equipamentoAtualizado = equipamentoService.save(equipamento);
+    public Equipamento AtualizarEquipamento(@RequestBody Equipamento equipamento) throws RegistroNaoEncontradoException {
+        _equipamentoService.findById(equipamento.id).orElseThrow(() -> new RegistroNaoEncontradoException("Equipamento não encontrado"));
+        Equipamento equipamentoAtualizado = _equipamentoService.save(equipamento);
         return equipamentoAtualizado;
     }
 
@@ -82,7 +82,7 @@ public class EquipamentoController {
     })
     @GetMapping("/{id}")
     public Equipamento BuscarPorId(@PathVariable Long id) throws RegistroNaoEncontradoException{
-        Equipamento equipamento = equipamentoService.findById(id).orElseThrow(() -> new RegistroNaoEncontradoException("Equipamento não encontrado"));
+        Equipamento equipamento = _equipamentoService.findById(id).orElseThrow(() -> new RegistroNaoEncontradoException("Equipamento não encontrado"));
         return equipamento;
     }
 }

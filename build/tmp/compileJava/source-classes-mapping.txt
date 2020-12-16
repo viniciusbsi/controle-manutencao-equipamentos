@@ -1,59 +1,61 @@
-br/com/desafio_java/controller/EquipamentoController.java
- br.com.desafio_java.controller.EquipamentoController
-br/com/desafio_java/dto/ClientePostDto.java
- br.com.desafio_java.dto.ClientePostDto
+br/com/desafio_java/repository/AcompanhamentoRepository.java
+ br.com.desafio_java.repository.AcompanhamentoRepository
+br/com/desafio_java/mapper/EquipamentoMapper.java
+ br.com.desafio_java.mapper.EquipamentoMapper
 br/com/desafio_java/dto/AcompanhamentoPostDto.java
  br.com.desafio_java.dto.AcompanhamentoPostDto
 br/com/desafio_java/service/ServiceAbstrata.java
  br.com.desafio_java.service.ServiceAbstrata
-br/com/desafio_java/controller/ColaboradorController.java
- br.com.desafio_java.controller.ColaboradorController
+br/com/desafio_java/dto/EquipamentoPostDto.java
+ br.com.desafio_java.dto.EquipamentoPostDto
 br/com/desafio_java/mapper/EntidadeMapper.java
  br.com.desafio_java.mapper.EntidadeMapper
+br/com/desafio_java/exception/ErroSistemaException.java
+ br.com.desafio_java.exception.ErroSistemaException
 br/com/desafio_java/model/Colaborador.java
  br.com.desafio_java.model.Colaborador
 br/com/desafio_java/exception/RegistroNaoEncontradoException.java
  br.com.desafio_java.exception.RegistroNaoEncontradoException
-br/com/desafio_java/dto/OrdemServicoGetDto.java
- br.com.desafio_java.dto.OrdemServicoGetDto
+br/com/desafio_java/dto/AcompanhamentoResponseDto.java
+ br.com.desafio_java.dto.AcompanhamentoResponseDto
 br/com/desafio_java/repository/ColaboradorRepository.java
  br.com.desafio_java.repository.ColaboradorRepository
 br/com/desafio_java/repository/ClienteRepository.java
  br.com.desafio_java.repository.ClienteRepository
-br/com/desafio_java/DesafioJavaApplication.java
- br.com.desafio_java.DesafioJavaApplication
-br/com/desafio_java/service/ClienteService.java
- br.com.desafio_java.service.ClienteService
+br/com/desafio_java/mapper/AcompanhamentoMapper.java
+ br.com.desafio_java.mapper.AcompanhamentoMapper
+br/com/desafio_java/dto/OrdemServicoGetDto.java
+ br.com.desafio_java.dto.OrdemServicoGetDto
 br/com/desafio_java/enums/EnumStatusAcompanhamento.java
  br.com.desafio_java.enums.EnumStatusAcompanhamento
-br/com/desafio_java/repository/EquipamentoRepository.java
- br.com.desafio_java.repository.EquipamentoRepository
 br/com/desafio_java/service/EquipamentoService.java
  br.com.desafio_java.service.EquipamentoService
-br/com/desafio_java/model/EntidadeAuditavel.java
- br.com.desafio_java.model.EntidadeAuditavel
-br/com/desafio_java/model/Cliente.java
- br.com.desafio_java.model.Cliente
+br/com/desafio_java/mapper/OrdemServicoMapper.java
+ br.com.desafio_java.mapper.OrdemServicoMapper
+br/com/desafio_java/mapper/ClienteMapper.java
+ br.com.desafio_java.mapper.ClienteMapper
 br/com/desafio_java/model/Equipamento.java
  br.com.desafio_java.model.Equipamento
-br/com/desafio_java/mapper/ColaboradorMapper.java
- br.com.desafio_java.mapper.ColaboradorMapper
-br/com/desafio_java/dto/OrdemServicoUpdateDto.java
- br.com.desafio_java.dto.OrdemServicoUpdateDto
+br/com/desafio_java/model/Cliente.java
+ br.com.desafio_java.model.Cliente
+br/com/desafio_java/dto/ClientePostDto.java
+ br.com.desafio_java.dto.ClientePostDto
+br/com/desafio_java/repository/EquipamentoRepository.java
+ br.com.desafio_java.repository.EquipamentoRepository
 br/com/desafio_java/service/ColaboradorService.java
  br.com.desafio_java.service.ColaboradorService
 br/com/desafio_java/config/SwaggerConfig.java
  br.com.desafio_java.config.SwaggerConfig
 br/com/desafio_java/dto/ColaboradorPostDto.java
  br.com.desafio_java.dto.ColaboradorPostDto
-br/com/desafio_java/dto/EquipamentoPostDto.java
- br.com.desafio_java.dto.EquipamentoPostDto
 br/com/desafio_java/dto/OrdemServicoPostDto.java
  br.com.desafio_java.dto.OrdemServicoPostDto
-br/com/desafio_java/controller/ClienteController.java
- br.com.desafio_java.controller.ClienteController
-br/com/desafio_java/mapper/ClienteMapper.java
- br.com.desafio_java.mapper.ClienteMapper
+br/com/desafio_java/mapper/ColaboradorMapper.java
+ br.com.desafio_java.mapper.ColaboradorMapper
+br/com/desafio_java/DesafioJavaApplication.java
+ br.com.desafio_java.DesafioJavaApplication
+br/com/desafio_java/model/OrdemServico.java
+ br.com.desafio_java.model.OrdemServico
 br/com/desafio_java/service/ServiceAbstrataImpl.java
  br.com.desafio_java.service.ServiceAbstrataImpl
 br/com/desafio_java/dto/AcompanhamentoUpdateDto.java
@@ -62,21 +64,27 @@ br/com/desafio_java/repository/OrdemServicoRepository.java
  br.com.desafio_java.repository.OrdemServicoRepository
 br/com/desafio_java/enums/EnumSetor.java
  br.com.desafio_java.enums.EnumSetor
-br/com/desafio_java/mapper/EquipamentoMapper.java
- br.com.desafio_java.mapper.EquipamentoMapper
-br/com/desafio_java/model/OrdemServico.java
- br.com.desafio_java.model.OrdemServico
 br/com/desafio_java/model/Acompanhamento.java
  br.com.desafio_java.model.Acompanhamento
-br/com/desafio_java/mapper/OrdemServicoMapper.java
- br.com.desafio_java.mapper.OrdemServicoMapper
-br/com/desafio_java/repository/AcompanhamentoRepository.java
- br.com.desafio_java.repository.AcompanhamentoRepository
+br/com/desafio_java/model/EntidadeAuditavel.java
+ br.com.desafio_java.model.EntidadeAuditavel
+br/com/desafio_java/dto/OrdemServicoUpdateDto.java
+ br.com.desafio_java.dto.OrdemServicoUpdateDto
+br/com/desafio_java/service/ClienteService.java
+ br.com.desafio_java.service.ClienteService
+br/com/desafio_java/controller/ClienteController.java
+ br.com.desafio_java.controller.ClienteController
+br/com/desafio_java/controller/ColaboradorController.java
+ br.com.desafio_java.controller.ColaboradorController
+br/com/desafio_java/controller/AcompanhamentoController.java
+ br.com.desafio_java.controller.AcompanhamentoController
+br/com/desafio_java/controller/EquipamentoController.java
+ br.com.desafio_java.controller.EquipamentoController
+br/com/desafio_java/exception/ErroFinalizacaoOrdemServicoException.java
+ br.com.desafio_java.exception.ErroFinalizacaoOrdemServicoException
 br/com/desafio_java/controller/OrdemServicoController.java
  br.com.desafio_java.controller.OrdemServicoController
 br/com/desafio_java/service/OrdemServicoService.java
  br.com.desafio_java.service.OrdemServicoService
 br/com/desafio_java/service/AcompanhamentoService.java
  br.com.desafio_java.service.AcompanhamentoService
-br/com/desafio_java/controller/AcompanhamentoController.java
- br.com.desafio_java.controller.AcompanhamentoController

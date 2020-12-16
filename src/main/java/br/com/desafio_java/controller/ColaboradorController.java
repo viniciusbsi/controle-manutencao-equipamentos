@@ -15,15 +15,15 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/Colaborador")
+@RequestMapping("/colaborador")
 @Api(description = "Colaboradores")
 public class ColaboradorController {
 
     @Autowired
-    private ColaboradorService colaboradorService;
+    private ColaboradorService _colaboradorService;
 
     @Autowired
-    private ColaboradorMapper colaboradorMapper;
+    private ColaboradorMapper _colaboradorMapper;
 
     @ApiOperation(value = "Buscar todos os Colaboradores")
     @ApiResponses(value = {
@@ -32,7 +32,7 @@ public class ColaboradorController {
     @GetMapping("/colaboradores")
     public List<Colaborador> BuscarTodos() {
         try {
-            List<Colaborador> listaColaborador = colaboradorService.findAll();
+            List<Colaborador> listaColaborador = _colaboradorService.findAll();
             return listaColaborador;
         } catch (Exception ex) {
             throw ex;
@@ -43,10 +43,10 @@ public class ColaboradorController {
     @ApiResponses(value = {
             @ApiResponse(code = 201, message = "Colaborador criado com sucesso")
     })
-    @PostMapping("/colaborador")
+    @PostMapping()
     public Colaborador IncluirColaborador(@RequestBody ColaboradorPostDto colaboradorPostDto) {
-        Colaborador colaborador = colaboradorMapper.toEntity(colaboradorPostDto);
-        colaboradorService.save(colaborador);
+        Colaborador colaborador = _colaboradorMapper.toEntity(colaboradorPostDto);
+        _colaboradorService.save(colaborador);
         return colaborador;
     }
 
@@ -56,8 +56,8 @@ public class ColaboradorController {
     })
     @DeleteMapping("/{id}")
     public void Deletar(@PathVariable Long id) {
-        colaboradorService.findById(id).orElseThrow(() -> new RegistroNaoEncontradoException("Colaborador não encontrado"));
-        colaboradorService.deleteById(id);
+        _colaboradorService.findById(id).orElseThrow(() -> new RegistroNaoEncontradoException("Colaborador não encontrado"));
+        _colaboradorService.deleteById(id);
     }
 
     @ApiOperation(value = "Atualiza um colaborador")
@@ -65,9 +65,9 @@ public class ColaboradorController {
             @ApiResponse(code = 201, message = " Colaborador atualizado com sucesso")
     })
     @PostMapping("/atualizar/{id}")
-    public Colaborador UpdateColaborador(@RequestBody  Colaborador colaborador) throws RegistroNaoEncontradoException {
-        colaboradorService.findById(colaborador.id).orElseThrow(() -> new RegistroNaoEncontradoException("Colaborador não encontrado"));
-         Colaborador colaboradorAtualizado = colaboradorService.save(colaborador);
+    public Colaborador AtualizarColaborador(@RequestBody  Colaborador colaborador) throws RegistroNaoEncontradoException {
+        _colaboradorService.findById(colaborador.id).orElseThrow(() -> new RegistroNaoEncontradoException("Colaborador não encontrado"));
+         Colaborador colaboradorAtualizado = _colaboradorService.save(colaborador);
         return colaboradorAtualizado;
     }
 
@@ -77,7 +77,7 @@ public class ColaboradorController {
     })
     @GetMapping("/{id}")
     public  Colaborador BuscarPorId(@PathVariable Long id) throws RegistroNaoEncontradoException{
-         Colaborador colaborador = colaboradorService.findById(id).orElseThrow(() -> new RegistroNaoEncontradoException("Colaborador não encontrado"));
+         Colaborador colaborador = _colaboradorService.findById(id).orElseThrow(() -> new RegistroNaoEncontradoException("Colaborador não encontrado"));
         return colaborador;
     }
 }

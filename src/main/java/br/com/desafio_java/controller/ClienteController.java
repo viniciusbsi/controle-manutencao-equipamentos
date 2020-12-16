@@ -15,15 +15,15 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/Cliente")
+@RequestMapping("/cliente")
 @Api(description = "Clientes")
 public class ClienteController {
 
     @Autowired
-    private ClienteService clienteService;
+    private ClienteService _clienteService;
 
     @Autowired
-    private ClienteMapper clienteMapper;
+    private ClienteMapper _clienteMapper;
 
     @ApiOperation(value = "Buscar todos os clientes")
     @ApiResponses(value = {
@@ -32,7 +32,7 @@ public class ClienteController {
     @GetMapping("/clientes")
     public List<Cliente> BuscarTodos() {
         try {
-            List<Cliente> listaCliente = clienteService.findAll();
+            List<Cliente> listaCliente = _clienteService.findAll();
             return listaCliente;
         } catch (Exception ex) {
             throw ex;
@@ -43,10 +43,10 @@ public class ClienteController {
     @ApiResponses(value = {
             @ApiResponse(code = 201, message = "Cliente criado com sucesso")
     })
-    @PostMapping("/cliente")
+    @PostMapping()
     public Cliente IncluirCliente(@RequestBody ClientePostDto clientePostDto) {
-        Cliente cliente = clienteMapper.toEntity(clientePostDto);
-        clienteService.save(cliente);
+        Cliente cliente = _clienteMapper.toEntity(clientePostDto);
+        _clienteService.save(cliente);
         return cliente;
     }
 
@@ -56,8 +56,8 @@ public class ClienteController {
     })
     @DeleteMapping("/{id}")
     public void Deletar(@PathVariable Long id) {
-        clienteService.findById(id).orElseThrow(() -> new RegistroNaoEncontradoException("Cliente não encontrado"));
-        clienteService.deleteById(id);
+        _clienteService.findById(id).orElseThrow(() -> new RegistroNaoEncontradoException("Cliente não encontrado"));
+        _clienteService.deleteById(id);
     }
 
     @ApiOperation(value = "Atualiza um cliente")
@@ -65,9 +65,9 @@ public class ClienteController {
             @ApiResponse(code = 201, message = "Cliente atualizado com sucesso")
     })
     @PostMapping("/atualizar/{id}")
-    public Cliente UpdateCliente(@RequestBody Cliente cliente) throws RegistroNaoEncontradoException {
-        clienteService.findById(cliente.id).orElseThrow(() -> new RegistroNaoEncontradoException("Cliente não encontrado"));
-        Cliente clienteAtualizado = clienteService.save(cliente);
+    public Cliente AtualizarCliente(@RequestBody Cliente cliente) throws RegistroNaoEncontradoException {
+        _clienteService.findById(cliente.id).orElseThrow(() -> new RegistroNaoEncontradoException("Cliente não encontrado"));
+        Cliente clienteAtualizado = _clienteService.save(cliente);
         return clienteAtualizado;
     }
 
@@ -77,7 +77,7 @@ public class ClienteController {
     })
     @GetMapping("/{id}")
     public Cliente BuscarPorId(@PathVariable Long id) throws RegistroNaoEncontradoException{
-        Cliente cliente = clienteService.findById(id).orElseThrow(() -> new RegistroNaoEncontradoException("Cliente não encontrado"));
+        Cliente cliente = _clienteService.findById(id).orElseThrow(() -> new RegistroNaoEncontradoException("Cliente não encontrado"));
         return cliente;
     }
 }

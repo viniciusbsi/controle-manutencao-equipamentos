@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2020-12-15T16:35:45-0300",
+    date = "2020-12-16T12:39:44-0300",
     comments = "version: 1.4.1.Final, compiler: IncrementalProcessingEnvironment from gradle-language-java-6.7.1.jar, environment: Java 11.0.9 (Oracle Corporation)"
 )
 @Component
@@ -55,8 +55,8 @@ public class OrdemServicoMapperImpl implements OrdemServicoMapper {
         OrdemServicoGetDto ordemServicoGetDto = new OrdemServicoGetDto();
 
         ordemServicoGetDto.descricao = entity.descricao;
-        ordemServicoGetDto.dataCriacao = entity.dataCriacao;
-        ordemServicoGetDto.dataAtualizacao = entity.dataAtualizacao;
+        ordemServicoGetDto.dataInicio = entity.dataInicio;
+        ordemServicoGetDto.dataFim = entity.dataFim;
 
         return ordemServicoGetDto;
     }
@@ -69,9 +69,9 @@ public class OrdemServicoMapperImpl implements OrdemServicoMapper {
 
         OrdemServico ordemServico = new OrdemServico();
 
-        ordemServico.dataCriacao = usuarioDTO.dataCriacao;
-        ordemServico.dataAtualizacao = usuarioDTO.dataAtualizacao;
         ordemServico.descricao = usuarioDTO.descricao;
+        ordemServico.dataInicio = usuarioDTO.dataInicio;
+        ordemServico.dataFim = usuarioDTO.dataFim;
 
         return ordemServico;
     }
@@ -88,8 +88,8 @@ public class OrdemServicoMapperImpl implements OrdemServicoMapper {
             ordemServicoGetDto.descricao = ordemServico.descricao;
             ordemServicoGetDto.nomeCliente = ordemServicoClienteNome( ordemServico );
             ordemServicoGetDto.nomeResponsavel = ordemServicoColaboradorNome( ordemServico );
-            ordemServicoGetDto.dataCriacao = ordemServico.dataCriacao;
-            ordemServicoGetDto.dataAtualizacao = ordemServico.dataAtualizacao;
+            ordemServicoGetDto.dataInicio = ordemServico.dataInicio;
+            ordemServicoGetDto.dataFim = ordemServico.dataFim;
         }
         if ( acompanhamento != null ) {
             ordemServicoGetDto.colaboradorAcompanhamento = acompanhamentoColaboradorNome( acompanhamento );

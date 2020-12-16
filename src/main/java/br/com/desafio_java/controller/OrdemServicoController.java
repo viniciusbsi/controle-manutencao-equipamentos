@@ -16,12 +16,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/OrdemServico")
+@RequestMapping("/ordemServico")
 @Api(description = "OrdemServicos")
 public class OrdemServicoController {
 
     @Autowired
-    private OrdemServicoService ordemServicoService;
+    private OrdemServicoService _ordemServicoService;
 
     @ApiOperation(value = "Buscar todos as orderns de serviços")
     @ApiResponses(value = {
@@ -29,12 +29,8 @@ public class OrdemServicoController {
     })
     @GetMapping("/ordemServicos")
     public List<OrdemServico> BuscarTodos() {
-        try {
-            List<OrdemServico> listaOrdemServicos = ordemServicoService.findAll();
-            return listaOrdemServicos;
-        } catch (Exception ex) {
-            throw ex;
-        }
+        List<OrdemServico> listaOrdemServicos = _ordemServicoService.findAll();
+        return listaOrdemServicos;
     }
 
     @ApiOperation(value = "Buscar dados de uma ordem de serviço")
@@ -43,16 +39,16 @@ public class OrdemServicoController {
     })
     @GetMapping("/ordemServicos/{id}")
     public OrdemServicoGetDto BuscarDadosOrdemServico(@PathVariable(value = "id") Long ordemServicoId) {
-        return ordemServicoService.BuscarDadosOrdemServico(ordemServicoId);
+        return _ordemServicoService.BuscarDadosOrdemServico(ordemServicoId);
     }
 
     @ApiOperation(value = "Cria uma order de serviço")
     @ApiResponses(value = {
             @ApiResponse(code = 201, message = "Order de serviço criada com sucesso")
     })
-    @PostMapping("/ordemServico")
+    @PostMapping()
     public OrdemServico IncluirOrdemServico(@RequestBody OrdemServicoPostDto ordemServicoPostDto) {
-        return ordemServicoService.IncluirOrdemServico(ordemServicoPostDto);
+        return _ordemServicoService.IncluirOrdemServico(ordemServicoPostDto);
     }
 
     @ApiOperation(value = "Exclui uma ordem de serviço")
@@ -61,8 +57,8 @@ public class OrdemServicoController {
     })
     @DeleteMapping("/{id}")
     public void Deletar(@PathVariable Long id) {
-        ordemServicoService.findById(id).orElseThrow(() -> new RegistroNaoEncontradoException("Colaborador não encontrado"));
-        ordemServicoService.deleteById(id);
+        _ordemServicoService.findById(id).orElseThrow(() -> new RegistroNaoEncontradoException("Colaborador não encontrado"));
+        _ordemServicoService.deleteById(id);
     }
 
     @ApiOperation(value = "Atualiza uma ordem de serviço")
@@ -70,8 +66,8 @@ public class OrdemServicoController {
             @ApiResponse(code = 201, message = "Ordem de serviço atualizada com sucesso")
     })
     @PostMapping("/atualizar/{id}")
-    public OrdemServico UpdateOrdemServico(@RequestBody OrdemServicoUpdateDto ordemServicoUpdateDto) throws RegistroNaoEncontradoException {
-        return ordemServicoService.AtualizarOrdemServico(ordemServicoUpdateDto);
+    public OrdemServico AtualizarOrdemServico(@RequestBody OrdemServicoUpdateDto ordemServicoUpdateDto) throws RegistroNaoEncontradoException {
+        return _ordemServicoService.AtualizarOrdemServico(ordemServicoUpdateDto);
     }
 
     @ApiOperation(value = "Busca uma ordem de serviço")
@@ -80,7 +76,7 @@ public class OrdemServicoController {
     })
     @GetMapping("/{id}")
     public OrdemServico BuscarPorId(@PathVariable Long id) throws RegistroNaoEncontradoException{
-        OrdemServico ordemServico = ordemServicoService.findById(id).orElseThrow(() -> new RegistroNaoEncontradoException("Ordem de serviço não encontrada"));
+        OrdemServico ordemServico = _ordemServicoService.findById(id).orElseThrow(() -> new RegistroNaoEncontradoException("Ordem de serviço não encontrada"));
         return ordemServico;
     }
 }

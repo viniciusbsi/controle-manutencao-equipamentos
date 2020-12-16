@@ -12,7 +12,7 @@ public class OrdemServicoGetDto {
     public String descricaoAcompanhamento;
     public String colaboradorAcompanhamento;
     public EnumStatusAcompanhamento statusAcompanhamento;
-    public LocalDateTime dataCriacao;
-    public LocalDateTime dataAtualizacao;
+    public LocalDateTime dataInicio;
+    public LocalDateTime dataFim;
     public LocalDateTime dataAtualizacaoAcompanhamento;
 }
