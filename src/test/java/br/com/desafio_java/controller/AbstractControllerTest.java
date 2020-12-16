@@ -35,7 +35,7 @@ public class AbstractControllerTest {
         equipamento.tipo = "TV";
 
         String equipamentoRetorno = mvc.perform(post("/equipamento")
-                .contentType(MediaType.APPLICATION_JSON_UTF8_VALUE)
+                .contentType(MediaType.APPLICATION_JSON_VALUE)
                 .content(convertObjectToJsonBytes(equipamento)))
                 .andReturn()
                 .getResponse()
@@ -60,7 +60,7 @@ public class AbstractControllerTest {
         cliente.telefone = "(47) 99999-9999";
 
         String clienteRetorno = mvc.perform(post("/cliente")
-                .contentType(MediaType.APPLICATION_JSON_UTF8_VALUE)
+                .contentType(MediaType.APPLICATION_JSON_VALUE)
                 .content(convertObjectToJsonBytes(cliente)))
                 .andReturn()
                 .getResponse()
@@ -87,7 +87,7 @@ public class AbstractControllerTest {
         colaborador.setor = EnumSetor.MANUTENCAO;
 
         String colaboradorRetorno = mvc.perform(post("/colaborador")
-                .contentType(MediaType.APPLICATION_JSON_UTF8_VALUE)
+                .contentType(MediaType.APPLICATION_JSON_VALUE)
                 .content(convertObjectToJsonBytes(colaborador)))
                 .andReturn()
                 .getResponse()
@@ -117,7 +117,7 @@ public class AbstractControllerTest {
         ordemServicoPostDto.descricao = "Trocar botões de volume e controle remoto";
 
         String ordemServicoRetorno = mvc.perform(post("/ordemServico")
-                .contentType(MediaType.APPLICATION_JSON_UTF8_VALUE)
+                .contentType(MediaType.APPLICATION_JSON_VALUE)
                 .content(convertObjectToJsonBytes(ordemServicoPostDto)))
                 .andReturn()
                 .getResponse()
@@ -142,7 +142,7 @@ public class AbstractControllerTest {
         acompanhamentoPostDto.statusAcompanhamento = EnumStatusAcompanhamento.PENDENTE;
 
         String acompanhamentoRetorno = mvc.perform(post("/acompanhamento")
-                .contentType(MediaType.APPLICATION_JSON_UTF8_VALUE)
+                .contentType(MediaType.APPLICATION_JSON_VALUE)
                 .content(convertObjectToJsonBytes(acompanhamentoPostDto)))
                 .andReturn()
                 .getResponse()

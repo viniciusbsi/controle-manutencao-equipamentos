@@ -29,7 +29,7 @@ public class ClienteControllerTest extends AbstractControllerTest {
     @Test
     public void verificarClienteCadastrado_InformaIdClienteCadastrado_EsperaNomeCorreto() throws Exception {
         mvc.perform(get("/cliente/{id}", cadastrarCliente().id)
-                .contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
+                .contentType(MediaType.APPLICATION_JSON_VALUE))
                 .andExpect(jsonPath("$.nome", is("João")));
     }
 
@@ -37,7 +37,7 @@ public class ClienteControllerTest extends AbstractControllerTest {
     public void deleteCliente_InformaIdCliente_EsperaStatusSucesso() throws Exception {
 
         mvc.perform(delete("/cliente/{id}", cadastrarCliente().id)
-                .contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
+                .contentType(MediaType.APPLICATION_JSON_VALUE))
                 .andExpect(status().isOk());
     }
 
@@ -47,9 +47,9 @@ public class ClienteControllerTest extends AbstractControllerTest {
         cliente.nome = "João nome editado";
 
         mvc.perform(post("/cliente/atualizar/{id}", cliente.id)
-                .contentType(MediaType.APPLICATION_JSON_UTF8_VALUE)
+                .contentType(MediaType.APPLICATION_JSON_VALUE)
                 .content(convertObjectToJsonBytes(cliente)))
-                .andExpect(jsonPath("$.nome", is("João nome editado")));;
+                .andExpect(jsonPath("$.nome", is("João nome editado")));
     }
 
 

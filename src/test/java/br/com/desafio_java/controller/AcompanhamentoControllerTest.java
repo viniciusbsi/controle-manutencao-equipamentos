@@ -29,7 +29,7 @@ public class AcompanhamentoControllerTest extends AbstractControllerTest {
     @Test
     public void verificarAcompanhamentoCadastrado_InformaIdAcompanhamentoCadastrado_EsperaDescricaoCorreta() throws Exception {
         mvc.perform(get("/acompanhamento/{id}", cadastrarAcompanhamneto().id)
-                .contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
+                .contentType(MediaType.APPLICATION_JSON_VALUE))
                 .andExpect(jsonPath("$.descricao", is("descrição acompanhamento")));
     }
 
@@ -37,7 +37,7 @@ public class AcompanhamentoControllerTest extends AbstractControllerTest {
     public void deleteAcompanhamento_InformaIdAcompanhamento_EsperaStatusSucesso() throws Exception {
 
         mvc.perform(delete("/acompanhamento/{id}", cadastrarAcompanhamneto().id)
-                .contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
+                .contentType(MediaType.APPLICATION_JSON_VALUE))
                 .andExpect(status().isOk());
     }
 
@@ -47,9 +47,9 @@ public class AcompanhamentoControllerTest extends AbstractControllerTest {
         acompanhamento.descricao = "Descrição editada";
 
         mvc.perform(post("/acompanhamento/atualizar/{id}", acompanhamento.id)
-                .contentType(MediaType.APPLICATION_JSON_UTF8_VALUE)
+                .contentType(MediaType.APPLICATION_JSON_VALUE)
                 .content(convertObjectToJsonBytes(acompanhamento)))
-                .andExpect(jsonPath("$.descricao", is("Descrição editada")));;
+                .andExpect(jsonPath("$.descricao", is("Descrição editada")));
     }
 
 

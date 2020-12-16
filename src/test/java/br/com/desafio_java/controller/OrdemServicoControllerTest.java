@@ -29,7 +29,7 @@ public class OrdemServicoControllerTest extends AbstractControllerTest {
     @Test
     public void verificarOrdemServicoCadastrada_InformaIdOrdemServicoCadastrada_EsperaDescricaoCorreta() throws Exception {
         mvc.perform(get("/ordemServico/{id}", cadastrarOrdemServico().id)
-                .contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
+                .contentType(MediaType.APPLICATION_JSON_VALUE))
                 .andExpect(jsonPath("$.descricao", is("Trocar botões de volume e controle remoto")));
     }
 
@@ -37,7 +37,7 @@ public class OrdemServicoControllerTest extends AbstractControllerTest {
     public void deleteOrdemServico_InformaIdOrdemServico_EsperaStatusSucesso() throws Exception {
 
         mvc.perform(delete("/ordemServico/{id}", cadastrarOrdemServico().id)
-                .contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
+                .contentType(MediaType.APPLICATION_JSON_VALUE))
                 .andExpect(status().isOk());
     }
 
@@ -47,9 +47,9 @@ public class OrdemServicoControllerTest extends AbstractControllerTest {
         ordemServico.descricao = "Descrição editada";
 
         mvc.perform(post("/ordemServico/atualizar/{id}", ordemServico.id)
-                .contentType(MediaType.APPLICATION_JSON_UTF8_VALUE)
+                .contentType(MediaType.APPLICATION_JSON_VALUE)
                 .content(convertObjectToJsonBytes(ordemServico)))
-                .andExpect(jsonPath("$.descricao", is("Descrição editada")));;
+                .andExpect(jsonPath("$.descricao", is("Descrição editada")));
     }
 
 

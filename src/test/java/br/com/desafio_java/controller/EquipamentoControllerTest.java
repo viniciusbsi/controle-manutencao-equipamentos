@@ -27,7 +27,7 @@ public class EquipamentoControllerTest extends AbstractControllerTest {
     @Test
     public void verificarEquipamentoCadastrado_InformaIdEquipamentoCadastrado_EsperaMarcaCorreta() throws Exception {
         mvc.perform(get("/equipamento/{id}", cadastrarEquipamento().id)
-                .contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
+                .contentType(MediaType.APPLICATION_JSON_VALUE))
                 .andExpect(jsonPath("$.marca", is("Samsung")));
     }
 
@@ -35,7 +35,7 @@ public class EquipamentoControllerTest extends AbstractControllerTest {
     public void deleteEquipamento_InformaIdEquipamento_EsperaStatusSucesso() throws Exception {
 
         mvc.perform(delete("/equipamento/{id}", cadastrarEquipamento().id)
-                .contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
+                .contentType(MediaType.APPLICATION_JSON_VALUE))
                 .andExpect(status().isOk());
     }
 
@@ -45,9 +45,9 @@ public class EquipamentoControllerTest extends AbstractControllerTest {
         equipamento.marca = "AOC";
 
         mvc.perform(post("/equipamento/atualizar/{id}", equipamento.id)
-                .contentType(MediaType.APPLICATION_JSON_UTF8_VALUE)
+                .contentType(MediaType.APPLICATION_JSON_VALUE)
                 .content(convertObjectToJsonBytes(equipamento)))
-                .andExpect(jsonPath("$.marca", is("AOC")));;
+                .andExpect(jsonPath("$.marca", is("AOC")));
     }
 
 
