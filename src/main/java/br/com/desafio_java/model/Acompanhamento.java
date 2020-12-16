@@ -7,7 +7,7 @@ import javax.persistence.*;
 
 @Data
 @Entity
-@Table(name = "atividade")
+@Table(name = "acompanhamento")
 public class Acompanhamento extends EntidadeAuditavel {
 
     @Id
