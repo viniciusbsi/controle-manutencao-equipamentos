@@ -27,11 +27,11 @@ public class SwaggerConfig extends WebMvcConfigurationSupport {
 
     private ApiInfo metaData() {
         return new ApiInfoBuilder()
-                .title("Desafio Java")
-                .description("\"Manutenção de equipamentos\"")
+                .title("Controle de manutenção de equipamentos\n")
+                .description("Trata-se de um sistema para controle de manutenção de equipamentos, cujo objetivo é manter o registro de todas as manutenções realizadas em equipamentos, bem como o registro dos envolvidos em cada manutenção. Isso é, o registro do cliente proprietário do equipamento, o registro do equipamento, o registro do colaborador que atende o cliente, o registro da ordem de serviço para a manutenção e o registro de todos os acompanhamentos realizados na ordem de serviço.")
                 .version("1.0.0")
                 .license("Documentação")
-                .licenseUrl("https://www.google.com")
+                .licenseUrl("https://github.com/viniciusbsi/controle-manutencao-equipamentos/blob/main/README.md")
                 .build();
     }
 
