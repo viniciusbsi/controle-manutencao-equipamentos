@@ -1,6 +1,6 @@
 # Controle de manutenção de equipamentos
 Trata-se de um sistema para controle de manutenção de equipamentos, cujo objetivo é manter o registro de todas as manutenções realizadas em equipamentos, bem como o registro dos envolvidos em cada manutenção.
-Isso é, o registro do **cliente** proprietário do equipamento, o registro do **equipamento**, o registro do **colaborador** que atende o cliente, o registro da **ordem de serviço** para a manutenção e o registro de todos os **acompanhamentos** realizados na ordem de serviço.
+Isso é, o registro do **cliente** proprietário do equipamento, o registro do **equipamento**, o registro do **colaborador** que atende o cliente, o registro da **ordem de serviço** para a manutenção e o registro de todos os **acompanhamentos** realizados junto à ordem de serviço.
 
 ## Startup
 
@@ -35,7 +35,7 @@ Para a instalação e inicialização do projeto, execute os comandos na seguint
 
 Após a inicialização, a utilização do projeto estará disponível por meio da URL [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html).
 
-Obs: Caso o serviço não esteja disponível, verifique a porta utilizada pelo servidor web. O número da porta pode ser consultada no terminal, o resultado apresentado deve ser semelhante a: `Tomcat started on port(s): [NÚMERO DA PORTA] (http)`
+Obs: Caso o serviço não esteja disponível, verifique a porta utilizada pelo servidor web. O número da porta pode ser consultada no console em que a aplicação foi iniciada, o resultado apresentado deve ser semelhante a: `Tomcat started on port(s): [NÚMERO DA PORTA] (http)`
 
 ## Documentação do projeto
 
@@ -85,7 +85,7 @@ Documentação da API utilizando Swagger;
 
 ### Acesso ao banco de dados
 
-Para a visualização da estrutura e consultas no banco de dados, acesse `http://localhost:8080/h2` e insira os parâmetros conforme figura abaixo.
+Para a visualização da estrutura e consultas no banco de dados, acesse [http://localhost:8080/h2](http://localhost:8080/h2) e insira os parâmetros conforme figura abaixo.
 
 ![ParametrosBd](assets/acesso_bd.png)
 
