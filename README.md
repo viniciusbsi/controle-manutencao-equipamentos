@@ -35,7 +35,7 @@ Para a instalação e inicialização do projeto, execute os comandos na seguint
 
 Após a inicialização, a utilização do projeto estará disponível por meio da URL [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html).
 
-Obs: Caso o serviço não esteja disponível, verifique a porta utilizada pelo servidor web. O número da porta pode ser consultada no terminal, o resultado apresentado deve ser semelhante a: `Tomcat started on port(s): [NÚMERO DA PORTA] (http)`
+Obs: Caso o serviço não esteja disponível, verifique a porta utilizada pelo servidor web. O número da porta pode ser consultada no console em que a aplicação foi iniciada, o resultado apresentado deve ser semelhante a: `Tomcat started on port(s): [NÚMERO DA PORTA] (http)`
 
 ## Documentação do projeto
 
@@ -85,7 +85,7 @@ Documentação da API utilizando Swagger;
 
 ### Acesso ao banco de dados
 
-Para a visualização da estrutura e consultas no banco de dados, acesse `http://localhost:8080/h2` e insira os parâmetros conforme figura abaixo.
+Para a visualização da estrutura e consultas no banco de dados, acesse [http://localhost:8080/h2](http://localhost:8080/h2) e insira os parâmetros conforme figura abaixo.
 
 ![ParametrosBd](assets/acesso_bd.png)
 
