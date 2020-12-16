@@ -28,7 +28,7 @@ public class ColaboradorControllerTest extends AbstractControllerTest {
 
     @Test
     public void verificarColaboradorCadastrado_InformaIdColaboradorCadastrado_EsperaNomeCorreto() throws Exception {
-        mvc.perform(get("/colaborador/{id}", cadastrarColaborador().id)
+        mvc.perform(get("/colaborador/{id}", CadastrarColaborador().id)
                 .contentType(MediaType.APPLICATION_JSON_VALUE))
                 .andExpect(jsonPath("$.nome", is("João")));
     }
@@ -36,19 +36,19 @@ public class ColaboradorControllerTest extends AbstractControllerTest {
     @Test
     public void deleteColaborador_InformaIdColaborador_EsperaStatusSucesso() throws Exception {
 
-        mvc.perform(delete("/colaborador/{id}", cadastrarColaborador().id)
+        mvc.perform(delete("/colaborador/{id}", CadastrarColaborador().id)
                 .contentType(MediaType.APPLICATION_JSON_VALUE))
                 .andExpect(status().isOk());
     }
 
     @Test
     public void atualizarEquipamento_InformaEquipamento_EsperaMarcaAtualizada() throws Exception {
-        Colaborador colaborador = cadastrarColaborador();
+        Colaborador colaborador = CadastrarColaborador();
         colaborador.nome = "João nome editado";
 
         mvc.perform(post("/colaborador/atualizar/{id}", colaborador.id)
                 .contentType(MediaType.APPLICATION_JSON_VALUE)
-                .content(convertObjectToJsonBytes(colaborador)))
+                .content(ConverterObjetoParaJsonBytes(colaborador)))
                 .andExpect(jsonPath("$.nome", is("João nome editado")));
     }
 

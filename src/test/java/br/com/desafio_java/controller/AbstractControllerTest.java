@@ -3,9 +3,7 @@ package br.com.desafio_java.controller;
 import br.com.desafio_java.dto.*;
 import br.com.desafio_java.enums.EnumSetor;
 import br.com.desafio_java.enums.EnumStatusAcompanhamento;
-import br.com.desafio_java.mapper.EquipamentoMapper;
 import br.com.desafio_java.model.*;
-import br.com.desafio_java.service.EquipamentoService;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
@@ -21,13 +19,7 @@ public class AbstractControllerTest {
     @Autowired
     private MockMvc mvc;
 
-    @Autowired
-    private EquipamentoService equipamentoService;
-
-    @Autowired
-    private EquipamentoMapper equipamentoMapper;
-
-    protected Equipamento cadastrarEquipamento() throws Exception {
+    protected Equipamento CadastrarEquipamento() throws Exception {
 
         EquipamentoPostDto equipamento = new EquipamentoPostDto();
         equipamento.marca = "Samsung";
@@ -36,7 +28,7 @@ public class AbstractControllerTest {
 
         String equipamentoRetorno = mvc.perform(post("/equipamento")
                 .contentType(MediaType.APPLICATION_JSON_VALUE)
-                .content(convertObjectToJsonBytes(equipamento)))
+                .content(ConverterObjetoParaJsonBytes(equipamento)))
                 .andReturn()
                 .getResponse()
                 .getContentAsString();
@@ -51,7 +43,7 @@ public class AbstractControllerTest {
         return equipamentoCadastrado;
     }
 
-    protected Cliente cadastrarCliente() throws Exception {
+    protected Cliente CadastrarCliente() throws Exception {
 
         ClientePostDto cliente = new ClientePostDto();
         cliente.nome = "João";
@@ -61,7 +53,7 @@ public class AbstractControllerTest {
 
         String clienteRetorno = mvc.perform(post("/cliente")
                 .contentType(MediaType.APPLICATION_JSON_VALUE)
-                .content(convertObjectToJsonBytes(cliente)))
+                .content(ConverterObjetoParaJsonBytes(cliente)))
                 .andReturn()
                 .getResponse()
                 .getContentAsString();
@@ -77,7 +69,7 @@ public class AbstractControllerTest {
         return clienteCadastrado;
     }
 
-    protected Colaborador cadastrarColaborador() throws Exception {
+    protected Colaborador CadastrarColaborador() throws Exception {
 
         ColaboradorPostDto colaborador = new ColaboradorPostDto();
         colaborador.nome = "João";
@@ -88,7 +80,7 @@ public class AbstractControllerTest {
 
         String colaboradorRetorno = mvc.perform(post("/colaborador")
                 .contentType(MediaType.APPLICATION_JSON_VALUE)
-                .content(convertObjectToJsonBytes(colaborador)))
+                .content(ConverterObjetoParaJsonBytes(colaborador)))
                 .andReturn()
                 .getResponse()
                 .getContentAsString();
@@ -104,11 +96,11 @@ public class AbstractControllerTest {
         return colaboradorCadastrado;
     }
 
-    protected OrdemServico cadastrarOrdemServico() throws Exception {
+    protected OrdemServico CadastrarOrdemServico() throws Exception {
 
-        Equipamento equipamento = cadastrarEquipamento();
-        Colaborador colaborador = cadastrarColaborador();
-        Cliente cliente = cadastrarCliente();
+        Equipamento equipamento = CadastrarEquipamento();
+        Colaborador colaborador = CadastrarColaborador();
+        Cliente cliente = CadastrarCliente();
 
         OrdemServicoPostDto ordemServicoPostDto = new OrdemServicoPostDto();
         ordemServicoPostDto.clienteId = cliente.id;
@@ -118,7 +110,7 @@ public class AbstractControllerTest {
 
         String ordemServicoRetorno = mvc.perform(post("/ordemServico")
                 .contentType(MediaType.APPLICATION_JSON_VALUE)
-                .content(convertObjectToJsonBytes(ordemServicoPostDto)))
+                .content(ConverterObjetoParaJsonBytes(ordemServicoPostDto)))
                 .andReturn()
                 .getResponse()
                 .getContentAsString();
@@ -130,10 +122,10 @@ public class AbstractControllerTest {
         return ordemServico;
     }
 
-    protected Acompanhamento cadastrarAcompanhamneto() throws Exception {
+    protected Acompanhamento CadastrarAcompanhamneto() throws Exception {
 
-        OrdemServico ordemServico = cadastrarOrdemServico();
-        Colaborador colaborador = cadastrarColaborador();
+        OrdemServico ordemServico = CadastrarOrdemServico();
+        Colaborador colaborador = CadastrarColaborador();
 
         AcompanhamentoPostDto acompanhamentoPostDto = new AcompanhamentoPostDto();
         acompanhamentoPostDto.ordemServicoId = ordemServico.id;
@@ -143,7 +135,7 @@ public class AbstractControllerTest {
 
         String acompanhamentoRetorno = mvc.perform(post("/acompanhamento")
                 .contentType(MediaType.APPLICATION_JSON_VALUE)
-                .content(convertObjectToJsonBytes(acompanhamentoPostDto)))
+                .content(ConverterObjetoParaJsonBytes(acompanhamentoPostDto)))
                 .andReturn()
                 .getResponse()
                 .getContentAsString();
@@ -155,7 +147,7 @@ public class AbstractControllerTest {
         return acompanhamento;
     }
 
-    protected static byte[] convertObjectToJsonBytes(Object object) throws Exception {
+    protected static byte[] ConverterObjetoParaJsonBytes(Object object) throws Exception {
         ObjectMapper mapper = new ObjectMapper();
         mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
 
