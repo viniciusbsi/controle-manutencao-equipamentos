@@ -15,6 +15,8 @@ public class AcompanhamentoResponseDto {
 
     public LocalDateTime dataCriacao;
 
+    public LocalDateTime dataAtualizacao;
+
     public String nomeColaborador;
 
     public Long ordemServicoId;

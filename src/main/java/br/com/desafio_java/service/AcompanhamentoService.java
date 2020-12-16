@@ -33,6 +33,7 @@ public class AcompanhamentoService extends ServiceAbstrataImpl<AcompanhamentoRep
         Acompanhamento acompanhamento = repository.findById(acompanhamentoUpdateDto.id).orElseThrow(() -> new RegistroNaoEncontradoException("Ordem de serviço não encontrada"));
         acompanhamento.descricao = acompanhamentoUpdateDto.descricao;
         acompanhamento.statusAcompanhamento = acompanhamentoUpdateDto.statusAcompanhamento;
+        acompanhamento.dataAtualizacao = LocalDateTime.now();
 
         repository.save(acompanhamento);
         _ordemServicoService.ValidarStatusOrdemServico(acompanhamento);

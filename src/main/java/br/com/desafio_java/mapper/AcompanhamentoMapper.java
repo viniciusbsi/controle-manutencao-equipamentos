@@ -12,14 +12,26 @@ import java.util.List;
 @Mapper(componentModel = "spring")
 public interface AcompanhamentoMapper extends EntidadeMapper<Acompanhamento, AcompanhamentoPostDto> {
 
+    @Mappings({
+            @Mapping(target = "ordemServicoId", ignore = true),
+            @Mapping(target = "colaboradorId", ignore = true)
+    })
     AcompanhamentoPostDto toDTO(Acompanhamento entity);
 
     @Override
+    @Mappings({
+            @Mapping(target = "id", ignore = true),
+            @Mapping(target = "dataCriacao", ignore = true),
+            @Mapping(target = "dataAtualizacao", ignore = true),
+            @Mapping(target = "ordemServico", ignore = true),
+            @Mapping(target = "colaborador", ignore = true)
+    })
     Acompanhamento toEntity(AcompanhamentoPostDto acompanhamentoPostDto);
 
     @Mappings({
             @Mapping(source = "acompanhamento.id", target = "id"),
             @Mapping(source = "acompanhamento.dataCriacao", target = "dataCriacao"),
+            @Mapping(source = "acompanhamento.dataAtualizacao", target = "dataAtualizacao"),
             @Mapping(source = "acompanhamento.statusAcompanhamento", target = "statusAcompanhamento"),
             @Mapping(source = "acompanhamento.descricao", target = "descricao"),
             @Mapping(source = "acompanhamento.colaborador.nome", target = "nomeColaborador"),
@@ -32,6 +44,7 @@ public interface AcompanhamentoMapper extends EntidadeMapper<Acompanhamento, Aco
     @Mappings({
             @Mapping(source = "acompanhamento.id", target = "id"),
             @Mapping(source = "acompanhamento.dataCriacao", target = "dataCriacao"),
+            @Mapping(source = "acompanhamento.dataAtualizacao", target = "dataAtualizacao"),
             @Mapping(source = "acompanhamento.statusAcompanhamento", target = "statusAcompanhamento"),
             @Mapping(source = "acompanhamento.descricao", target = "descricao"),
             @Mapping(source = "acompanhamento.colaborador.nome", target = "nomeColaborador"),

@@ -40,6 +40,7 @@ public class OrdemServicoService extends ServiceAbstrataImpl<OrdemServicoReposit
     public OrdemServico AtualizarOrdemServico(OrdemServicoUpdateDto ordemServicoUpdateDto) {
         OrdemServico ordemServico = repository.findById(ordemServicoUpdateDto.id).orElseThrow(() -> new RegistroNaoEncontradoException("Ordem de serviço não encontrada"));
         ordemServico.descricao = ordemServicoUpdateDto.descricao;
+        ordemServico.dataAtualizacao = LocalDateTime.now();
         repository.save(ordemServico);
         return ordemServico;
     }
