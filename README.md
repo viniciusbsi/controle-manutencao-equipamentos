@@ -1,6 +1,6 @@
 # Controle de manutenção de equipamentos
 Trata-se de um sistema para controle de manutenção de equipamentos, cujo objetivo é manter o registro de todas as manutenções realizadas em equipamentos, bem como o registro dos envolvidos em cada manutenção.
-Isso é, o registro do **cliente** proprietário do equipamento, o registro do **equipamento**, o registro do **colaborador** que atende o cliente, o registro da **ordem de serviço** para a manutenção e o registro de todos os **acompanhamentos** realizados na ordem de serviço.
+Isso é, o registro do **cliente** proprietário do equipamento, o registro do **equipamento**, o registro do **colaborador** que atende o cliente, o registro da **ordem de serviço** para a manutenção e o registro de todos os **acompanhamentos** realizados junto à ordem de serviço.
 
 ## Startup
 
